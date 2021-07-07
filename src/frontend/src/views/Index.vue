@@ -330,18 +330,18 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import "~@/assets/scss/mixins/mixins";
+@import "~@/assets/scss/mixins/mixins";
 
-  @import "~@/assets/scss/layout/header";
-  @import "~@/assets/scss/layout/content";
-  @import "~@/assets/scss/layout/sheet";
+@import "~@/assets/scss/layout/header";
+@import "~@/assets/scss/layout/content";
+@import "~@/assets/scss/layout/sheet";
 
-  @import "~@/assets/scss/blocks/button";
-  @import "~@/assets/scss/blocks/counter";
-  @import "~@/assets/scss/blocks/diameter";
-  @import "~@/assets/scss/blocks/dough";
-  @import "~@/assets/scss/blocks/filling";
-  @import "~@/assets/scss/blocks/ingridients";
-  @import "~@/assets/scss/blocks/pizza";
-  @import "~@/assets/scss/blocks/title";
+@import "~@/assets/scss/blocks/button";
+@import "~@/assets/scss/blocks/counter";
+@import "~@/assets/scss/blocks/diameter";
+@import "~@/assets/scss/blocks/dough";
+@import "~@/assets/scss/blocks/filling";
+@import "~@/assets/scss/blocks/ingridients";
+@import "~@/assets/scss/blocks/pizza";
+@import "~@/assets/scss/blocks/title";
 </style>
