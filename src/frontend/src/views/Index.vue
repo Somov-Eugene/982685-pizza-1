@@ -41,7 +41,7 @@
                 >
                   <input
                     type="radio"
-                    name="dought"
+                    name="dough"
                     class="visually-hidden"
                     :value="dough.value"
                     :checked="doughIndex === 0"
@@ -106,13 +106,13 @@
 
                   <ul class="ingridients__list">
                     <li
-                      v-for="(ingredient, ingredientIndex) in selectedIngridients"
+                      v-for="(
+                        ingredient, ingredientIndex
+                      ) in selectedIngridients"
                       :key="`ingredient-${ingredientIndex}`"
                       class="ingridients__item"
                     >
-                      <span
-                        :class="`filling filling--${ingredient.value}`"
-                      >
+                      <span :class="`filling filling--${ingredient.value}`">
                         {{ ingredient.name }}
                       </span>
 
@@ -135,10 +135,7 @@
                         />
                         <button
                           type="button"
-                          class="
-                            counter__button
-                            counter__button--plus
-                          "
+                          class="counter__button counter__button--plus"
                         >
                           <span class="visually-hidden">Больше</span>
                         </button>
@@ -172,11 +169,7 @@
 
             <div class="content__result">
               <p>Итого: 0 ₽</p>
-              <button
-                type="button"
-                class="button button--disabled"
-                disabled
-              >
+              <button type="button" class="button button--disabled" disabled>
                 Готовьте!
               </button>
             </div>
@@ -192,6 +185,13 @@ import misc from "@/static/misc.json";
 import pizza from "@/static/pizza.json";
 import user from "@/static/user.json";
 
+import {
+  findPizzaDough,
+  findPizzaSize,
+  findPizzaSauces,
+  findPizzaIngredients,
+} from "@/common/helpers";
+
 export default {
   name: "Index",
 
@@ -205,131 +205,27 @@ export default {
 
   computed: {
     selectedDough() {
-      return this.pizza.dough.map((dough) => {
-        let value = "";
-
-        switch (dough.name) {
-          case "Тонкое":
-            value = "light";
-            break;
-          case "Толстое":
-            value = "large";
-            break;
-        }
-
-        return {
-          ...dough,
-          value,
-        };
-      });
+      return this.pizza.dough.map((dough) => findPizzaDough(dough));
     },
 
     selectedSizes() {
-      return this.pizza.sizes.map((size) => {
-        let value = "";
-
-        switch (size.multiplier) {
-          case 1:
-            value = "small";
-            break;
-          case 2:
-            value = "normal";
-            break;
-          case 3:
-            value = "big";
-            break;
-        }
-
-        return {
-          ...size,
-          value,
-        };
-      });
+      return this.pizza.sizes.map((size) => findPizzaSize(size));
     },
 
     selectedSauces() {
-      return this.pizza.sauces.map((sauce) => {
-        let value = "";
-
-        switch (sauce.name) {
-          case "Томатный":
-            value = "tomato";
-            break;
-          case "Сливочный":
-            value = "creamy";
-            break;
-        }
-
-        return {
-          ...sauce,
-          value,
-        };
-      });
+      return this.pizza.sauces.map((sauce) => findPizzaSauces(sauce));
     },
 
     selectedIngridients() {
-      return this.pizza.ingredients.map((ingredient) => {
-        let value = "";
-
-        switch (ingredient.name) {
-          case "Грибы":
-            value = "mushrooms";
-            break;
-          case "Чеддер":
-            value = "cheddar";
-            break;
-          case "Салями":
-            value = "salami";
-            break;
-          case "Ветчина":
-            value = "ham";
-            break;
-          case "Ананас":
-            value = "ananas";
-            break;
-          case "Бекон":
-            value = "bacon";
-            break;
-          case "Лук":
-            value = "onion";
-            break;
-          case "Чили":
-            value = "chile";
-            break;
-          case "Халапеньо":
-            value = "jalapeno";
-            break;
-          case "Маслины":
-            value = "olives";
-            break;
-          case "Томаты":
-            value = "tomatoes";
-            break;
-          case "Лосось":
-            value = "salmon";
-            break;
-          case "Моцарелла":
-            value = "mozzarella";
-            break;
-          case "Пармезан":
-            value = "parmesan";
-            break;
-          case "Блю чиз":
-            value = "blue_cheese";
-            break;
-        }
-
-        return {
-          ...ingredient,
-          value,
-        };
-      });
+      return this.pizza.ingredients.map((ingredient) =>
+        findPizzaIngredients(ingredient)
+      );
     },
   },
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
 @import "~@/assets/scss/mixins/mixins";
 
 @import "~@/assets/scss/layout/header";
