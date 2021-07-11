@@ -6,9 +6,7 @@ import {
 } from "./constants";
 
 export const findPizzaDough = (dough) => {
-  const pizzaDough = PIZZA_DOUGH.find(
-    (item) => dough.name === item.name
-  );
+  const pizzaDough = PIZZA_DOUGH.find((item) => dough.name === item.name);
 
   return {
     ...dough,
@@ -28,9 +26,7 @@ export const findPizzaSize = (size) => {
 };
 
 export const findPizzaSauces = (sauce) => {
-  const pizzaSauce = PIZZA_SAUCES.find(
-    (item) => sauce.name === item.name
-  );
+  const pizzaSauce = PIZZA_SAUCES.find((item) => sauce.name === item.name);
 
   return {
     ...sauce,

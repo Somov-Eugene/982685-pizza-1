@@ -95,7 +95,7 @@
                       type="radio"
                       name="sauce"
                       :value="sauce.value"
-                      checked="sauceIndex === 0"
+                      :checked="sauceIndex === 0"
                     />
                     <span>{{ sauce.name }}</span>
                   </label>
